@@ -1,0 +1,20 @@
+.App { min-height: 100vh; }
+
+.glass-input {
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  padding: 0 16px;
+  outline: none;
+  width: 100%;
+}
+
+.glass-input:focus {
+  border-color: #0b4f9f;
+}
+
+textarea.glass-input {
+  height: auto;
+}
