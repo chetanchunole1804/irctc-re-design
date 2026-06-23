@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, CalendarDays } from "lucide-react";
 import AIThinking from "./AIThinking";
 import TripResult from "./TripResult";
 
@@ -65,16 +65,19 @@ const AITripForm = () => {
     }, 3000);
   };
 
+  const today = new Date().toISOString().split("T")[0];
+
   return (
-    <div className="mt-10 text-slate-900">
+    <div className="mt-10 text-white">
       <div
         className="
           max-w-5xl mx-auto
-          bg-white
-          border border-slate-200
-          shadow-2xl
           rounded-3xl
           p-8
+          bg-white/10
+          backdrop-blur-2xl
+          border border-white/20
+          shadow-[0_20px_60px_rgba(0,0,0,0.35)]
         "
       >
         <form onSubmit={generatePlan} className="grid md:grid-cols-2 gap-5">
@@ -83,18 +86,22 @@ const AITripForm = () => {
             placeholder="From City"
             onChange={handleChange}
             className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              text-white
+              placeholder:text-slate-200
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
+              "
           />
 
           <input
@@ -102,102 +109,147 @@ outline-none
             placeholder="Destination"
             onChange={handleChange}
             className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              text-white
+              placeholder:text-slate-200
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
+              "
           />
 
-          <input
-            type="date"
-            name="departureDate"
-            onChange={handleChange}
-            className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
-          />
-
-          <input
-            type="date"
-            name="returnDate"
-            onChange={handleChange}
-            className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
-          />
+          <div className="relative">
+            <input
+              type="date"
+              min={today}
+              name="departureDate"
+              onChange={handleChange}
+              className="
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+                border
+                border-white/20
+                px-4
+                text-white
+                placeholder:text-slate-200
+                focus:border-orange-400
+                focus:ring-4
+                focus:ring-orange-400/20
+                outline-none
+                transition-all
+              "
+            />
+            <CalendarDays
+              size={20}
+              className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                text-orange-400
+                pointer-events-none
+              "
+            />
+          </div>
+          <div className="relative">
+            <input
+              type="date"
+              min={formData.departureDate || today}
+              name="returnDate"
+              onChange={handleChange}
+              className="
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              text-white
+              placeholder:text-slate-200
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
+            "
+            />
+            <CalendarDays
+              size={20}
+              className="
+                absolute
+                right-4
+                top-1/2
+                -translate-y-1/2
+                text-orange-400
+                pointer-events-none
+              "
+            />
+          </div>
 
           <select
             name="budget"
             onChange={handleChange}
             className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              text-white
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
+            "
           >
-            <option>Budget</option>
-            <option>₹5k - ₹10k</option>
-            <option>₹10k - ₹25k</option>
-            <option>₹25k+</option>
+            <option className="text-black">Budget</option>
+            <option className="text-black">₹5k - ₹10k</option>
+            <option className="text-black">₹10k - ₹25k</option>
+            <option className="text-black">₹25k+</option>
           </select>
 
           <select
             name="tripType"
             onChange={handleChange}
             className="
-h-14
-w-full
-rounded-xl
-border
-border-slate-200
-px-4
-text-slate-700
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
+              h-14
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              text-white
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
 "
           >
-            <option>Family</option>
-            <option>Solo</option>
-            <option>Couple</option>
-            <option>Friends</option>
+            <option className="text-black">Family</option>
+            <option className="text-black">Solo</option>
+            <option className="text-black">Couple</option>
+            <option className="text-black">Friends</option>
           </select>
 
           <textarea
@@ -206,39 +258,44 @@ outline-none
             placeholder="Preferences (mountains, temples, beaches...)"
             onChange={handleChange}
             className="
-            rounded-xl
-            w-full
-            border-slate-200
-            border
- px-4
-py-3
-focus:border-blue-500
-focus:ring-4
-focus:ring-blue-100
-outline-none
-"
+              w-full
+              rounded-xl
+              bg-white/15
+              backdrop-blur-md
+              border
+              border-white/20
+              px-4
+              py-3
+              text-white
+              placeholder:text-slate-200
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/20
+              outline-none
+              transition-all
+            "
           />
 
           <button
             type="submit"
             className="
-  md:col-span-2
-  h-14
-  rounded-xl
-  bg-gradient-to-r
-  from-orange-500
-  to-orange-600
-  text-white
-  font-semibold
-  flex
-  items-center
-  justify-center
-  gap-2
-  shadow-lg
-  hover:shadow-xl
-  hover:scale-[1.02]
-  transition-all
-"
+              md:col-span-2
+              h-14
+              rounded-xl
+              bg-gradient-to-r
+              from-orange-500
+              to-orange-600
+              text-white
+              font-semibold
+              flex
+              items-center
+              justify-center
+              gap-2
+              shadow-lg
+              hover:shadow-xl
+              hover:scale-[1.02]
+              transition-all
+            "
           >
             <Sparkles size={18} />
             Generate AI Trip Plan

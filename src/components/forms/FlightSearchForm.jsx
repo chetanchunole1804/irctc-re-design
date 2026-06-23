@@ -22,18 +22,18 @@ const FlightSearchForm = () => {
 
   return (
     <div>
-      <RadioGroup value={tripType} onValueChange={setTripType} className="flex items-center gap-6 mb-4">
+      <RadioGroup value={tripType} onValueChange={setTripType} className="flex items-center gap-6 mb-4 text-white">
         <div className="flex items-center gap-2">
           <RadioGroupItem value="oneway" id="oneway" />
-          <Label htmlFor="oneway" className="text-sm text-slate-700">One Way</Label>
+          <Label htmlFor="oneway" className="text-sm ">One Way</Label>
         </div>
         <div className="flex items-center gap-2">
           <RadioGroupItem value="round" id="round" />
-          <Label htmlFor="round" className="text-sm text-slate-700">Round Trip</Label>
+          <Label htmlFor="round" className="text-sm ">Round Trip</Label>
         </div>
         <div className="flex items-center gap-2">
           <RadioGroupItem value="multi" id="multi" />
-          <Label htmlFor="multi" className="text-sm text-slate-700">Multi City</Label>
+          <Label htmlFor="multi" className="text-sm ">Multi City</Label>
         </div>
       </RadioGroup>
 

@@ -19,7 +19,7 @@ const BookingTabs = () => {
     <div className="max-w-6xl mx-auto">
   {/* Top Tabs */}
   <div className="flex justify-center mb-6">
-    <div className="flex gap-3 p-2 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20">
+    <div className="flex gap-3 p-2 rounded-2xl bg-white/10 border border-white/20">
       {tabs.map((t) => {
         const Icon = t.icon;
         const isActive = active === t.id;
