@@ -3,7 +3,7 @@ import BookingTabs from "./BookingTabs";
 import { ChevronDown } from "lucide-react";
 
 // Multiple stock video CDN URLs to try in order (fallback)
-const VIDEO_SOURCES = ["../../public/videos/Vande-bharat.mp4"];
+const VIDEO_SOURCES = ["/videos/Vande-bharat.mp4"];
 
 const HeroVideo = () => {
   const [srcIdx, setSrcIdx] = useState(0);
