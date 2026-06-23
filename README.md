@@ -14,7 +14,6 @@ This project is a complete frontend redesign of the IRCTC website with a modern 
 - 🚌 Bus booking section
 - ✈️ Flight booking section
 - 🏨 Hotel booking section
-- 🌟 Glassmorphism design elements
 - ⚡ Smooth animations and transitions
 - 🔍 User-friendly navigation
 - 🌙 Modern color palette inspired by Indian Railways
